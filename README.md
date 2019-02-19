@@ -6,5 +6,5 @@ For each task I have :-
 
         * Made a new folder
         * Downloaded the problerm
-        * Downloaded my solution
+        * Downloaded my solutions
 
