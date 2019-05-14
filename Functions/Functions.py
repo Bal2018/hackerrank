@@ -1,8 +1,15 @@
-# hackerrank - Used Python 3  Final Code
+# hackerrank - Used Python 3 
 #!/bin/python3
-if __name__ == '__main__':
-    n = int(input())    #User enters max number of lines
-for i in range(0,n):
-    print(i*i)          #Print out the square number of that line number
+ 
+def is_leap(year):              #function to check if year is a LEAP year
+leap = False
+    if (year%4==0):             #check if year is divisable by 4
+        leap=True
+        if (year%100==0):       #check if year is divisable by 100
+            leap=False
+            if (year%400==0):   #check if year is divisable by 400
+                leap=True
+return leap
 
-
+year = int(input())
+print(is_leap(year))
