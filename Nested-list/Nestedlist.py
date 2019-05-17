@@ -1,15 +1,37 @@
 # hackerrank - Used Python 3 
 #!/bin/python3
  
-def is_leap(year):              #function to check if year is a LEAP year
-leap = False
-    if (year%4==0):             #check if year is divisable by 4
-        leap=True
-        if (year%100==0):       #check if year is divisable by 100
-            leap=False
-            if (year%400==0):   #check if year is divisable by 400
-                leap=True
-return leap
+ if __name__ == '__main__':
+    StudentDetails= []
+    StGrades =[]
+    FinalList=[]
+    MaxStudents = int(input())
+   
+    for N in range(0,MaxStudents):
+        name = input()
+        score = float(input())
+        StudentDetails.append([name,score])
+        StGrades.append(score)
 
-year = int(input())
-print(is_leap(year))
+    LowScoreList= sorted(StGrades, reverse=False)
+    Lowestscore=LowScoreList[0]
+    
+    A=0
+    B=1
+    while LowScoreList[A] == LowScoreList[B]:  #Make sure there is no dups inlowest score
+        A=B
+        B=B+1
+
+    SecLowScore=LowScoreList[B]       
+    A=0
+    FinalList =[]                               #Final Score List - ready to print
+    for N in StudentDetails:                    #Loop with originalfile - every record
+   
+        if N[1]==SecLowScore:             #check if 2 part of rec(score)=lowestscore calc
+  
+            FinalList.append(StudentDetails[A]) #add onto new list - just what we print
+        A=A+1                               #Regardless incr index couter
+
+    FinalList.sort()                        #Sort final list alphabetically
+    for i in FinalList:
+        print(i[0], sep="\n")               #Just print name part of rec
